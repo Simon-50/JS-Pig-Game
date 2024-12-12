@@ -18,6 +18,7 @@ $dice-width: 15%;
     background-color: $primary-color;
 }
 
+// Include borders as they are used throughout the project
 * {
     box-sizing: border-box;
     color: $text-color;
@@ -52,14 +53,22 @@ header {
     text-align: center;
 }
 
-header h1 {
-    margin-top: 0;
-    font-size: 5vw;
-}
-
 h2,
 h3 {
     margin: 0;
+}
+
+header h1 {
+    margin-top: 0;
+    font-size: 5rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 1.2rem;
 }
 
 button {
@@ -97,6 +106,7 @@ button {
     width: $dice-width;
 }
 
+// Only shows when someone wins
 #win-screen {
     display: none;
 }
@@ -112,6 +122,7 @@ button {
     flex-direction: column;
     align-items: center;
 
+    // Make two players and one dice widget take exactly one width of space to wrap controls section
     width: calc((100% - $dice-width) / 2 - 4vw);
     margin: 0 2vw;
 

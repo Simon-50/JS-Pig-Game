@@ -45,21 +45,11 @@ function switchActivePlayer() {
     activePlayer.section.classList.add('active-player');
 }
 
-// Delay code execution by ms
-function delay(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-}
+// Toggle if the win screen
+function toggleWin() {
+    const isHidden = getComputedStyle(winScreen).display === 'none';
 
-// Hold current score
-async function holdScore() {
-    let score = getNumber(activePlayer.current);
-    incrementScore(activePlayer.total, score);
-    activePlayer.current.textContent = 0;
-
-    await delay(1);
-
-    // Check if that is enough to win
-    if (getNumber(activePlayer.total) >= 50) {
+    if (isHidden) {
         // Hide game
         player1.section.style.display = 'none';
         player2.section.style.display = 'none';
@@ -71,20 +61,33 @@ async function holdScore() {
         winScreen.textContent = `${activePlayer.text} has won the game!`;
         winScreen.style.display = 'block';
     } else {
+        // Reset game displays
+        winScreen.style.display = 'none';
+        player1.section.style.display = 'flex';
+        diceSection.style.display = 'flex';
+        player2.section.style.display = 'flex';
+        roll.style.display = 'inline';
+        hold.style.display = 'inline';
+    }
+}
+
+// Hold current score
+function holdScore() {
+    let score = getNumber(activePlayer.current);
+    incrementScore(activePlayer.total, score);
+    activePlayer.current.textContent = 0;
+
+    // Check if that is enough to win
+    if (getNumber(activePlayer.total) >= 5) {
+        toggleWin();
+    } else {
         switchActivePlayer();
     }
 }
 
 // Reset scores for new game
 function newGame() {
-    // Reset game displays
-    winScreen.style.display = 'none';
-    player1.section.style.display = 'flex';
-    diceSection.style.display = 'flex';
-    player2.section.style.display = 'flex';
-    roll.style.display = 'inline';
-    hold.style.display = 'inline';
-
+    toggleWin();
     // Reset scores
     player1.total.textContent = 0;
     player1.current.textContent = 0;

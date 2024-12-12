@@ -29,14 +29,22 @@ header {
   text-align: center;
 }
 
-header h1 {
-  margin-top: 0;
-  font-size: 5vw;
-}
-
 h2,
 h3 {
   margin: 0;
+}
+
+header h1 {
+  margin-top: 0;
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 1.2rem;
 }
 
 button {
