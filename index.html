@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS game (TEINF 2024)</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="index.js" defer></script>
+    </head>
+    <body>
+        <div class="game-container">
+            <header>
+                <h1>JS GAME</h1>
+            </header>
+
+            <main>
+                <section class="player" id="player-1">
+                    <h2>Player 1</h2>
+                    <h3>Total</h3>
+                    <p class="score" id="score-1">0</p>
+                    <h3>Current</h3>
+                    <p class="score" id="current-1">0</p>
+                </section>
+
+                <section id="dice">
+                    <img id="dice-img" src="images/dice 1.png" alt="Dice" />
+                </section>
+
+                <section class="player" id="player-2">
+                    <h2>Player 2</h2>
+                    <h3>Total</h3>
+                    <p class="score" id="score-2">0</p>
+                    <h3>Current</h3>
+                    <p class="score" id="current-2">0</p>
+                </section>
+
+                <h1 id="win-screen"></h1>
+
+                <section id="controls">
+                    <button id="roll-dice"><h3>Roll Dice</h3></button>
+                    <button id="hold"><h3>Hold Score</h3></button>
+                    <button id="reset"><h3>New Game</h3></button>
+                </section>
+            </main>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,130 @@
+// Colors
+$primary-color: #76c24a;
+$secondary-color: #e3d1a5;
+$accent-color: #bc4749;
+$background-color: #e9edc9;
+$text-color: #343a40;
+$muted-color: #6a994e;
+$border-color: #000000;
+
+// Sizes
+$game-width: 70vw;
+$player-border-thickness: 0.2vw;
+$dice-width: 15%;
+
+// For active player and hovered over buttons
+@mixin selected {
+    border: $player-border-thickness solid $accent-color;
+    background-color: $primary-color;
+}
+
+* {
+    box-sizing: border-box;
+    color: $text-color;
+}
+
+body {
+    background-color: $background-color;
+
+    // Center all page contents
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    width: $game-width;
+}
+
+img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 1vw;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    margin-top: 0;
+    font-size: 5vw;
+}
+
+h2,
+h3 {
+    margin: 0;
+}
+
+button {
+    border-radius: 3vw;
+    background-color: $muted-color;
+    width: 8vw;
+    min-width: 120px;
+    height: 3vw;
+    border: $player-border-thickness solid $border-color;
+    text-align: center;
+
+    transition: 300ms;
+
+    cursor: pointer;
+
+    &:hover {
+        @include selected;
+        width: max(10vw, 140px);
+    }
+}
+
+#controls {
+    margin: 1vw 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#dice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: $dice-width;
+}
+
+#win-screen {
+    display: none;
+}
+
+.game-container {
+    border-radius: 5vw;
+
+    background-color: $secondary-color;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: calc((100% - $dice-width) / 2 - 4vw);
+    margin: 0 2vw;
+
+    border: $player-border-thickness solid $border-color;
+    border-radius: 5vw;
+    background-color: $muted-color;
+}
+
+.active-player {
+    @include selected;
+}
+
+.score {
+    font-size: 7vw;
+    margin: 0;
+}
